@@ -1,81 +1,377 @@
-# File & Directory Basics
+# 📁 File & Directory Basics
 
-## Navigation
+## 🧭 Navigation
 
-pwd                     // print current working directory
-cd test                 // go into "test" folder
-cd ..                   // go up one folder
-cd ~ or cd              // go to home directory
-cd -                    // go to previous directory
-ls                      // list files in current dir
-ls -a                   // list all files, including hidden (dotfiles)
-ls -l                   // long listing (permissions, owner, size, date)
-ls -la                  // long listing + hidden files
-ls -lh                  // long listing with human-readable sizes (K/M/G)
-ls -lr                  // alphabetic reverse order
-ls -lt                  // order by modified time, newest on top
-ls -ltr                 // order by modified time, oldest on top
-tree                    // show directory structure as a tree (may need install)
-clear                   // clear current terminal window
-history                 // show command history
-uname                   // print system/kernel name
-uname -a                // print all system info (kernel, hostname, arch)
+Print current working directory
 
-## Create / Remove
+```bash
+pwd
+```
 
-mkdir test              // create a directory
-mkdir -p a/b/c          // create nested directories in one go
-touch linex.txt         // create a new empty file (or update its timestamp)
-touch shell.txt
-rmdir test              // remove an EMPTY directory
-rm test                 // remove a file
-rm -rf test             // remove a folder and everything inside it (no confirm, careful!)
-rm *.txt                // remove all .txt files in current dir
-ln -s target linkname   // create a symbolic (soft) link
+Go into "test" folder
 
-## Copy / Move / Rename
+```bash
+cd test
+```
 
-cp info.txt server_new.txt   // copy a file
-cp -r dir1 dir2               // copy a directory recursively
-mv aws.txt server.txt         // rename a file
-mv server.txt folder          // move a file into "folder"
+Go up one folder
 
-## Viewing File Content
+```bash
+cd ..
+```
 
-cat server.txt               // print whole file content
-cat info.txt                 // all file content
-cat -n server.txt            // print with line numbers
-cat > server.txt             // create/overwrite file, type content, Ctrl+D to save
-welcome to server
-cat >> server.txt            // append content to file, Ctrl+D to save
-server info aws
-cat info.txt server.txt > server.txt   // concatenate two files into one (overwrites target)
-tac info.txt                 // print file content in reverse line order
-rev info.txt                 // reverse each line's characters
-head info.txt                // first 10 lines
-head -n 4 info.txt            // first 4 lines
-tail info.txt                // last 10 lines
-tail -n 5 info.txt            // last 5 lines
-tail -f server.log            // follow file live as it grows (logs)
-less server.txt               // page through a file (q to quit, / to search)
-more server.txt               // page through a file, simpler than less
-wc server.txt                 // count lines, words, bytes
-wc -l server.txt              // count lines only
+Go to home directory
 
-## Searching & Filtering
+```bash
+cd ~
+```
 
-grep "test" server.txt        // print lines containing "test"
-grep -v "test" server.txt     // print lines NOT containing "test"
-grep -i "test" server.txt     // case-insensitive search
-grep -c "test" server.txt     // count matching lines
-grep -r "test" .              // search recursively in all files under current dir
-grep -n "test" server.txt     // show line numbers with matches
-find . -name "*.txt"          // find files by name under current dir
-find . -type d -name "test"   // find directories by name
-locate filename                // fast filename search (needs updatedb / mlocate installed)
-which bash                    // show full path of a command
-whereis bash                  // show binary/source/man locations of a command
-sort server.txt               // sort lines alphabetically
-sort -n numbers.txt           // sort lines numerically
-uniq server.txt               // remove adjacent duplicate lines (sort first for full dedup)
-diff server.txt info.txt      // show differences between two files
+Go to previous directory
+
+```bash
+cd -
+```
+
+List files in current dir
+
+```bash
+ls
+```
+
+List all files, including hidden (dotfiles)
+
+```bash
+ls -a
+```
+
+Long listing (permissions, owner, size, date)
+
+```bash
+ls -l
+```
+
+Long listing + hidden files
+
+```bash
+ls -la
+```
+
+Long listing with human-readable sizes (K/M/G)
+
+```bash
+ls -lh
+```
+
+Alphabetic reverse order
+
+```bash
+ls -lr
+```
+
+Order by modified time, newest on top
+
+```bash
+ls -lt
+```
+
+Order by modified time, oldest on top
+
+```bash
+ls -ltr
+```
+
+Show directory structure as a tree (may need install)
+
+```bash
+tree
+```
+
+Clear current terminal window
+
+```bash
+clear
+```
+
+Show command history
+
+```bash
+history
+```
+
+Print system/kernel name
+
+```bash
+uname
+```
+
+Print all system info (kernel, hostname, arch)
+
+```bash
+uname -a
+```
+
+## 🆕 Create / Remove
+
+Create a directory
+
+```bash
+mkdir test
+```
+
+Create nested directories in one go
+
+```bash
+mkdir -p a/b/c
+```
+
+Create a new empty file (or update its timestamp)
+
+```bash
+touch linex.txt
+```
+
+Remove an EMPTY directory
+
+```bash
+rmdir test
+```
+
+Remove a file
+
+```bash
+rm test
+```
+
+Remove a folder and everything inside it (no confirm, careful!)
+
+```bash
+rm -rf test
+```
+
+Remove all `.txt` files in current dir
+
+```bash
+rm *.txt
+```
+
+Create a symbolic (soft) link
+
+```bash
+ln -s target linkname
+```
+
+## 🔁 Copy / Move / Rename
+
+Copy a file
+
+```bash
+cp info.txt server_new.txt
+```
+
+Copy a directory recursively
+
+```bash
+cp -r dir1 dir2
+```
+
+Rename a file
+
+```bash
+mv aws.txt server.txt
+```
+
+Move a file into "folder"
+
+```bash
+mv server.txt folder
+```
+
+## 👀 Viewing File Content
+
+Print whole file content
+
+```bash
+cat server.txt
+```
+
+Print with line numbers
+
+```bash
+cat -n server.txt
+```
+
+Create/overwrite file, type content, then `Ctrl+D` to save
+
+```bash
+cat > server.txt
+```
+
+Append content to file, then `Ctrl+D` to save
+
+```bash
+cat >> server.txt
+```
+
+Concatenate two files into one (overwrites target)
+
+```bash
+cat info.txt server.txt > server.txt
+```
+
+Print file content in reverse line order
+
+```bash
+tac info.txt
+```
+
+Reverse each line's characters
+
+```bash
+rev info.txt
+```
+
+First 10 lines
+
+```bash
+head info.txt
+```
+
+First 4 lines
+
+```bash
+head -n 4 info.txt
+```
+
+Last 10 lines
+
+```bash
+tail info.txt
+```
+
+Last 5 lines
+
+```bash
+tail -n 5 info.txt
+```
+
+Follow file live as it grows (logs)
+
+```bash
+tail -f server.log
+```
+
+Page through a file (`q` to quit, `/` to search)
+
+```bash
+less server.txt
+```
+
+Page through a file, simpler than `less`
+
+```bash
+more server.txt
+```
+
+Count lines, words, bytes
+
+```bash
+wc server.txt
+```
+
+Count lines only
+
+```bash
+wc -l server.txt
+```
+
+## 🔎 Searching & Filtering
+
+Print lines containing "test"
+
+```bash
+grep "test" server.txt
+```
+
+Print lines NOT containing "test"
+
+```bash
+grep -v "test" server.txt
+```
+
+Case-insensitive search
+
+```bash
+grep -i "test" server.txt
+```
+
+Count matching lines
+
+```bash
+grep -c "test" server.txt
+```
+
+Search recursively in all files under current dir
+
+```bash
+grep -r "test" .
+```
+
+Show line numbers with matches
+
+```bash
+grep -n "test" server.txt
+```
+
+Find files by name under current dir
+
+```bash
+find . -name "*.txt"
+```
+
+Find directories by name
+
+```bash
+find . -type d -name "test"
+```
+
+Fast filename search (needs `updatedb` / `mlocate` installed)
+
+```bash
+locate filename
+```
+
+Show full path of a command
+
+```bash
+which bash
+```
+
+Show binary/source/man locations of a command
+
+```bash
+whereis bash
+```
+
+Sort lines alphabetically
+
+```bash
+sort server.txt
+```
+
+Sort lines numerically
+
+```bash
+sort -n numbers.txt
+```
+
+Remove adjacent duplicate lines (sort first for full dedup)
+
+```bash
+uniq server.txt
+```
+
+Show differences between two files
+
+```bash
+diff server.txt info.txt
+```

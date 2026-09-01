@@ -1,44 +1,185 @@
-# File Permissions & User Management
+# 🔐 File Permissions & User Management
 
-## File Permissions (chmod)
+## 🛡️ File Permissions (chmod)
 
-ls -l file.txt                 // shows perms like -rwxr-xr--  (owner/group/other)
-chmod +x script.sh             // add execute permission for everyone
-chmod -x script.sh             // remove execute permission
-chmod u+x script.sh            // add execute for owner (user) only
-chmod g+w file.txt             // add write for group only
-chmod o-r file.txt             // remove read for others
-chmod 755 script.sh            // owner: rwx, group: r-x, other: r-x
-chmod 644 file.txt             // owner: rw-, group: r--, other: r--
-chmod -R 755 folder            // apply recursively to all files/dirs inside
+Shows perms like `-rwxr-xr--` (owner/group/other)
 
-Numeric permission values: read=4, write=2, execute=1 (add them up per owner/group/other).
+```bash
+ls -l file.txt
+```
 
-## Ownership (chown / chgrp)
+Add execute permission for everyone
 
-chown ratul file.txt           // change file owner to "ratul"
-chown ratul:ratul file.txt     // change owner and group together
-chown -R ratul:ratul folder    // change ownership recursively
-chgrp ratul file.txt           // change group only
+```bash
+chmod +x script.sh
+```
 
-## Users & Groups
+Remove execute permission
 
-sudo useradd ratul             // create a new user
-sudo passwd ratul              // set/change password for user
-sudo userdel ratul             // delete a user
-sudo userdel -r ratul          // delete a user and their home directory
-sudo groupadd ratul            // create a new group
-sudo groupdel ratul            // delete a group
-sudo usermod -aG ratul admin   // add user "admin" to group "ratul" (append, don't replace)
-groups ratul                   // show groups a user belongs to
-whoami                         // show current logged-in user
-id                              // show current user's uid/gid and groups
-who                             // show who is logged in
-su - ratul                      // switch to user "ratul" (login shell)
-sudo su -                       // switch to root
+```bash
+chmod -x script.sh
+```
 
-## Elevated Privileges
+Add execute for owner (user) only
 
-sudo command                   // run a single command as root
-sudo -i                         // start an interactive root shell
-sudo -l                         // list what the current user is allowed to run with sudo
+```bash
+chmod u+x script.sh
+```
+
+Add write for group only
+
+```bash
+chmod g+w file.txt
+```
+
+Remove read for others
+
+```bash
+chmod o-r file.txt
+```
+
+Owner: rwx, group: r-x, other: r-x
+
+```bash
+chmod 755 script.sh
+```
+
+Owner: rw-, group: r--, other: r--
+
+```bash
+chmod 644 file.txt
+```
+
+Apply recursively to all files/dirs inside
+
+```bash
+chmod -R 755 folder
+```
+
+> Numeric permission values: read=4, write=2, execute=1 (add them up per owner/group/other).
+
+## 👤 Ownership (chown / chgrp)
+
+Change file owner to "ratul"
+
+```bash
+chown ratul file.txt
+```
+
+Change owner and group together
+
+```bash
+chown ratul:ratul file.txt
+```
+
+Change ownership recursively
+
+```bash
+chown -R ratul:ratul folder
+```
+
+Change group only
+
+```bash
+chgrp ratul file.txt
+```
+
+## 👥 Users & Groups
+
+Create a new user
+
+```bash
+sudo useradd ratul
+```
+
+Set/change password for user
+
+```bash
+sudo passwd ratul
+```
+
+Delete a user
+
+```bash
+sudo userdel ratul
+```
+
+Delete a user and their home directory
+
+```bash
+sudo userdel -r ratul
+```
+
+Create a new group
+
+```bash
+sudo groupadd ratul
+```
+
+Delete a group
+
+```bash
+sudo groupdel ratul
+```
+
+Add user "admin" to group "ratul" (append, don't replace)
+
+```bash
+sudo usermod -aG ratul admin
+```
+
+Show groups a user belongs to
+
+```bash
+groups ratul
+```
+
+Show current logged-in user
+
+```bash
+whoami
+```
+
+Show current user's uid/gid and groups
+
+```bash
+id
+```
+
+Show who is logged in
+
+```bash
+who
+```
+
+Switch to user "ratul" (login shell)
+
+```bash
+su - ratul
+```
+
+Switch to root
+
+```bash
+sudo su -
+```
+
+## 🔑 Elevated Privileges
+
+Run a single command as root
+
+```bash
+sudo command
+```
+
+Start an interactive root shell
+
+```bash
+sudo -i
+```
+
+List what the current user is allowed to run with sudo
+
+```bash
+sudo -l
+```

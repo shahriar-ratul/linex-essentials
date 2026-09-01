@@ -1,60 +1,259 @@
-# System, Disk & Package Management
+# 🖥️ System, Disk & Package Management
 
-## Disk & Memory
+## 💽 Disk & Memory
 
-df -h                        // show disk space usage per mounted filesystem, human-readable
-du -sh folder                // show total size of a folder, human-readable
-du -sh *                     // show size of each item in current dir
-free -h                       // show RAM/swap usage, human-readable
-mount                          // list mounted filesystems
-lsblk                          // list block devices (disks/partitions)
+Show disk space usage per mounted filesystem, human-readable
 
-## System Info & Time
+```bash
+df -h
+```
 
-uptime                         // how long the system has been running + load average
-date                             // show current date and time
-whoami                            // show current user
-uname -a                          // kernel/system info
-cat /etc/os-release                // show Linux distro info
-man command                        // manual page for a command (q to quit)
-command --help                      // quick help/usage for a command
+Show total size of a folder, human-readable
 
-## Services (systemd)
+```bash
+du -sh folder
+```
 
-systemctl status nginx          // check status of a service
-systemctl start nginx           // start a service
-systemctl stop nginx            // stop a service
-systemctl restart nginx         // restart a service
-systemctl enable nginx          // start service automatically on boot
-systemctl disable nginx         // stop auto-start on boot
-journalctl -u nginx              // view logs for a specific service
-journalctl -f                     // follow system logs live
+Show size of each item in current dir
 
-## Package Management
+```bash
+du -sh *
+```
 
-sudo apt update                  // refresh package list (Debian/Ubuntu)
-sudo apt upgrade                 // upgrade installed packages (Debian/Ubuntu)
-sudo apt install package         // install a package (Debian/Ubuntu)
-sudo apt remove package          // remove a package (Debian/Ubuntu)
-sudo yum install package         // install a package (RHEL/CentOS, older)
-sudo dnf install package         // install a package (RHEL/Fedora, newer)
+Show RAM/swap usage, human-readable
 
-## Archiving & Compression
+```bash
+free -h
+```
 
-tar -cvf archive.tar folder/       // create a tar archive
-tar -xvf archive.tar               // extract a tar archive
-tar -czvf archive.tar.gz folder/   // create a gzip-compressed tar archive
-tar -xzvf archive.tar.gz           // extract a gzip-compressed tar archive
-zip -r archive.zip folder/          // create a zip archive
-unzip archive.zip                    // extract a zip archive
-gzip file.txt                         // compress a file (creates file.txt.gz)
-gunzip file.txt.gz                    // decompress a .gz file
+List mounted filesystems
 
-## Environment & Shell
+```bash
+mount
+```
 
-echo "hello"                    // print text
-echo $PATH                       // print an environment variable
-export VAR=value                  // set an environment variable for this shell session
-alias ll='ls -la'                  // create a shortcut command
-env                                 // list all environment variables
-which command                       // show which binary would run for a command
+List block devices (disks/partitions)
+
+```bash
+lsblk
+```
+
+## 🕐 System Info & Time
+
+How long the system has been running + load average
+
+```bash
+uptime
+```
+
+Show current date and time
+
+```bash
+date
+```
+
+Show current user
+
+```bash
+whoami
+```
+
+Kernel/system info
+
+```bash
+uname -a
+```
+
+Show Linux distro info
+
+```bash
+cat /etc/os-release
+```
+
+Manual page for a command (`q` to quit)
+
+```bash
+man command
+```
+
+Quick help/usage for a command
+
+```bash
+command --help
+```
+
+## 🔧 Services (systemd)
+
+Check status of a service
+
+```bash
+systemctl status nginx
+```
+
+Start a service
+
+```bash
+systemctl start nginx
+```
+
+Stop a service
+
+```bash
+systemctl stop nginx
+```
+
+Restart a service
+
+```bash
+systemctl restart nginx
+```
+
+Start service automatically on boot
+
+```bash
+systemctl enable nginx
+```
+
+Stop auto-start on boot
+
+```bash
+systemctl disable nginx
+```
+
+View logs for a specific service
+
+```bash
+journalctl -u nginx
+```
+
+Follow system logs live
+
+```bash
+journalctl -f
+```
+
+## 📦 Package Management
+
+Refresh package list (Debian/Ubuntu)
+
+```bash
+sudo apt update
+```
+
+Upgrade installed packages (Debian/Ubuntu)
+
+```bash
+sudo apt upgrade
+```
+
+Install a package (Debian/Ubuntu)
+
+```bash
+sudo apt install package
+```
+
+Remove a package (Debian/Ubuntu)
+
+```bash
+sudo apt remove package
+```
+
+Install a package (RHEL/CentOS, older)
+
+```bash
+sudo yum install package
+```
+
+Install a package (RHEL/Fedora, newer)
+
+```bash
+sudo dnf install package
+```
+
+## 🗜️ Archiving & Compression
+
+Create a tar archive
+
+```bash
+tar -cvf archive.tar folder/
+```
+
+Extract a tar archive
+
+```bash
+tar -xvf archive.tar
+```
+
+Create a gzip-compressed tar archive
+
+```bash
+tar -czvf archive.tar.gz folder/
+```
+
+Extract a gzip-compressed tar archive
+
+```bash
+tar -xzvf archive.tar.gz
+```
+
+Create a zip archive
+
+```bash
+zip -r archive.zip folder/
+```
+
+Extract a zip archive
+
+```bash
+unzip archive.zip
+```
+
+Compress a file (creates `file.txt.gz`)
+
+```bash
+gzip file.txt
+```
+
+Decompress a `.gz` file
+
+```bash
+gunzip file.txt.gz
+```
+
+## 🌱 Environment & Shell
+
+Print text
+
+```bash
+echo "hello"
+```
+
+Print an environment variable
+
+```bash
+echo $PATH
+```
+
+Set an environment variable for this shell session
+
+```bash
+export VAR=value
+```
+
+Create a shortcut command
+
+```bash
+alias ll='ls -la'
+```
+
+List all environment variables
+
+```bash
+env
+```
+
+Show which binary would run for a command
+
+```bash
+which command
+```

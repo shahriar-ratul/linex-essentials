@@ -1,30 +1,127 @@
-# Networking & Remote Access
+# 🌐 Networking & Remote Access
 
-## Connectivity & Info
+## 📡 Connectivity & Info
 
-ping google.com             // check connectivity/latency to a host (Ctrl+C to stop)
-ip a                         // show network interfaces and IP addresses (modern)
-ifconfig                     // show network interfaces (older, may need install)
-hostname                     // show this machine's hostname
-hostname -I                  // show this machine's IP address(es)
-netstat -tulnp               // show listening ports and the processes using them (older)
-ss -tulnp                    // show listening ports and processes (modern replacement for netstat)
-traceroute google.com        // show the network path (hops) to a host
+Check connectivity/latency to a host (`Ctrl+C` to stop)
 
-## Transferring Data
+```bash
+ping google.com
+```
 
-curl https://example.com               // fetch a URL, print response to terminal
-curl -O https://example.com/file.zip   // download a file, keep its original name
-curl -I https://example.com            // fetch headers only
-wget https://example.com/file.zip      // download a file
-scp file.txt user@host:/path/          // copy a file to a remote server over SSH
-scp -r folder user@host:/path/         // copy a folder recursively over SSH
-rsync -avz src/ user@host:/dest/       // sync files/folders efficiently (only changes)
+Show network interfaces and IP addresses (modern)
 
-## Remote Login
+```bash
+ip a
+```
 
-ssh user@host                 // log in to a remote server
-ssh -i key.pem user@host       // log in using a specific private key
-ssh -p 2222 user@host          // log in on a non-default port
-ssh-keygen -t ed25519          // generate a new SSH key pair
-ssh-copy-id user@host           // copy your public key to a remote server for passwordless login
+Show network interfaces (older, may need install)
+
+```bash
+ifconfig
+```
+
+Show this machine's hostname
+
+```bash
+hostname
+```
+
+Show this machine's IP address(es)
+
+```bash
+hostname -I
+```
+
+Show listening ports and the processes using them (older)
+
+```bash
+netstat -tulnp
+```
+
+Show listening ports and processes (modern replacement for netstat)
+
+```bash
+ss -tulnp
+```
+
+Show the network path (hops) to a host
+
+```bash
+traceroute google.com
+```
+
+## 📤 Transferring Data
+
+Fetch a URL, print response to terminal
+
+```bash
+curl https://example.com
+```
+
+Download a file, keep its original name
+
+```bash
+curl -O https://example.com/file.zip
+```
+
+Fetch headers only
+
+```bash
+curl -I https://example.com
+```
+
+Download a file
+
+```bash
+wget https://example.com/file.zip
+```
+
+Copy a file to a remote server over SSH
+
+```bash
+scp file.txt user@host:/path/
+```
+
+Copy a folder recursively over SSH
+
+```bash
+scp -r folder user@host:/path/
+```
+
+Sync files/folders efficiently (only changes)
+
+```bash
+rsync -avz src/ user@host:/dest/
+```
+
+## 🔑 Remote Login
+
+Log in to a remote server
+
+```bash
+ssh user@host
+```
+
+Log in using a specific private key
+
+```bash
+ssh -i key.pem user@host
+```
+
+Log in on a non-default port
+
+```bash
+ssh -p 2222 user@host
+```
+
+Generate a new SSH key pair
+
+```bash
+ssh-keygen -t ed25519
+```
+
+Copy your public key to a remote server for passwordless login
+
+```bash
+ssh-copy-id user@host
+```
